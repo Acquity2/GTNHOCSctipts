@@ -45,6 +45,7 @@ gui.setBottom("Made with Visual Gui v0.1a and Gui library v2.5")
 -- Main loop
 while true do
    gui.runGui(mainGui)
+   gui.setValue()
 end
 
 
