@@ -25,6 +25,11 @@ local FileList = {
 	--{FileName = "", Url = ""}
 }
 
+local FileList1 = {
+	{FileName = "OCIF.lua", Url = "https://raw.githubusercontent.com/IgorTimofeev/Image/master/OCIF.lua"},
+	--{FileName = "", Url = ""}
+}
+
 
 
 
@@ -51,6 +56,13 @@ end
 
 for k,v in pairs(FileList) do
 	local _Location = "/lib/"
+	local _FileNmae = v.FileName
+	local _Url = v.Url
+	download(_FileNmae,_Location,_Url)
+end
+
+for k,v in pairs(FileList1) do
+	local _Location = "/lib/FormatModules/"
 	local _FileNmae = v.FileName
 	local _Url = v.Url
 	download(_FileNmae,_Location,_Url)
