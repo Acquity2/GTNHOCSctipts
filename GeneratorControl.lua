@@ -13,7 +13,7 @@ local generator = false
 local PID = nil
 local _side = sides.east --设置红石信号输出面
 
-component.gpu.setResolution(80,30)
+buffer.setResolution(80,30)
 
 --------------------------------------------------------------------------------------------------------------------------------
 local function GetMachineInfo()
@@ -137,6 +137,11 @@ local function exam()
     else
         startGenerator()
     end
+    workspace:draw(true)
+end
+
+local function alert()
+    GUI.alert("test")
 end
 
 --------------------------------------------------------------------------------------------------------------------------------
@@ -153,6 +158,7 @@ end
 local framedButton2 = workspace:addChild(GUI.framedButton(2, 23, 38, 3, 0xFFFFFF, 0xFFFFFF, 0x880000, 0x880000, "Reflash"))
 framedButton2.onTouch = function()
     fresh()
+    --exam()
     --GUI.alert(perNum, percent.text.."/n", RC.text, MEI.text, AEO.text)
 end
 
@@ -161,7 +167,7 @@ roundedButton1.onTouch = function()
     PID = event.timer(0.5,exam,math.huge)
     --GUI.alert(eventhandle)
     PIDlabel.text = tostring(PID)
-    GCS.text = "ON   "
+    GCS.text = "ON "
     roundedButton1.disabled = true
 end
 
@@ -170,7 +176,7 @@ roundedButton2.onTouch = function()
     if PID ~= nil then
         event.cancel(PID)
         stopGenerator()
-        GCS.text = "OFF   "
+        GCS.text = "OFF "
         roundedButton1.disabled = false
         PID = nil
     else
