@@ -157,6 +157,7 @@ end
 
 local framedButton2 = workspace:addChild(GUI.framedButton(2, 23, 38, 3, 0xFFFFFF, 0xFFFFFF, 0x880000, 0x880000, "Reflash"))
 framedButton2.onTouch = function()
+    buffer.setResolution(80,30)
     fresh()
     --exam()
     --GUI.alert(perNum, percent.text.."/n", RC.text, MEI.text, AEO.text)
