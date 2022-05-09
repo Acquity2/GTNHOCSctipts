@@ -176,6 +176,7 @@ local roundedButton2 = workspace:addChild(GUI.roundedButton(40, 20, 40, 3, 0xff0
 roundedButton2.onTouch = function()
     if PID ~= nil then
         event.cancel(PID)
+        PIDlabel.text = " "
         stopGenerator()
         GCS.text = "OFF "
         roundedButton1.disabled = false
