@@ -30,6 +30,10 @@ local FileList1 = {
 	--{FileName = "", Url = ""}
 }
 
+local FileList2 = {
+	{FileName = "GeneratorControl.lua", Url = "https://github.com/Acquity2/GTNHOCSctipts/raw/main/GeneratorControl.lua"},
+	--{FileName = "", Url = ""}
+}
 
 
 
@@ -40,7 +44,7 @@ function download(FileName,Location,Url)
 		--["User-Agent"] = "ARPM/dropper" -- Gitlab returns HTTP 403 when default user agent is used (e.g. Java/1.8.0_131)
 	}
 	local saveFile = Location..FileName
-	print("Downloading to " .. saveFile)
+	print("Downloading to  " .. saveFile)
 	local content = ""
 	local response = internet.request(arpmUrl, nil, additionalHeaders)
 	for chunk in response do
@@ -50,7 +54,7 @@ function download(FileName,Location,Url)
 	local handle = io.open(saveFile, "w")
 	handle:write(content)
 	handle:close()
-	print(FileName.."Download complete")
+	print(FileName.." Download complete")
 
 end
 
@@ -63,6 +67,13 @@ end
 
 for k,v in pairs(FileList1) do
 	local _Location = "/lib/FormatModules/"
+	local _FileNmae = v.FileName
+	local _Url = v.Url
+	download(_FileNmae,_Location,_Url)
+end
+
+for k,v in pairs(FileList2) do
+	local _Location = "/home/"
 	local _FileNmae = v.FileName
 	local _Url = v.Url
 	download(_FileNmae,_Location,_Url)
